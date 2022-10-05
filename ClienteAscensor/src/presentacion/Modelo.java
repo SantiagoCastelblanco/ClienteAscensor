@@ -1,17 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package presentacion;
 
-/**
- *
- * @author Santiago
- */
-public class Modelo {
 
-    public void iniciar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+public class Modelo {
+    
+    private Vista ventana;
+    
+    public void iniciar(){
+        
+        getVentana().setSize(800,800);
+        getVentana().setVisible(true);
     }
     
+    public Vista getVentana(){
+        if(ventana==null){
+            ventana = new Vista(this);
+        }
+        return ventana;
+    }
 }
