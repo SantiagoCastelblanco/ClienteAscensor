@@ -4,7 +4,7 @@ package presentacion;
 
 public class Modelo {
     
-    private MensajeID ventana;
+    private AsOut ventana;
     
     
     public void iniciar(){
@@ -13,9 +13,9 @@ public class Modelo {
         getVentana().setVisible(true);
     }
     
-        public MensajeID getVentana(){
+        public AsOut getVentana(){
         if(ventana==null){
-            ventana = new MensajeID(this);
+            ventana = new AsOut(this);
         }
         return ventana;
     }
