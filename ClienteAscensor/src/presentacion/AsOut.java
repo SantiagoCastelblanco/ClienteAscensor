@@ -1,12 +1,12 @@
 
 package presentacion;
 
-public class Vista extends javax.swing.JFrame {
+public class AsOut extends javax.swing.JFrame {
 
     private final Modelo modelo;
     
     
-    Vista(Modelo aThis) {
+    AsOut(Modelo aThis) {
         modelo=aThis;
         initComponents();
     }
