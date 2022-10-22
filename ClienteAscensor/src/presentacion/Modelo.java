@@ -1,6 +1,8 @@
 
 package presentacion;
 
+import javax.swing.JOptionPane;
+
 
 public class Modelo {
     
@@ -11,12 +13,18 @@ public class Modelo {
         
         getVentana().setSize(800,800);
         getVentana().setVisible(true);
+        mostrarMensajeID();
     }
     
-        public AsOut getVentana(){
+    public AsOut getVentana(){
         if(ventana==null){
             ventana = new AsOut(this);
         }
         return ventana;
     }
+    
+    void mostrarMensajeID() {
+        int Id = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese la ID del cliente(ID NUMERICA)"));
+    }
+        
 }
