@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 public class Modelo {
     
     private AsOut ventana;
+    private AsIn ventana2;
     
     
     public void iniciar(){
@@ -16,11 +17,26 @@ public class Modelo {
         mostrarMensajeID();
     }
     
+    public void iniciar2(){
+        
+        getVentana2().setSize(800,800);
+        getVentana().setVisible(false);
+        getVentana2().setVisible(true);
+        
+    }
+    
     public AsOut getVentana(){
         if(ventana==null){
             ventana = new AsOut(this);
         }
         return ventana;
+    }
+    
+    public AsIn getVentana2(){
+        if(ventana2==null){
+            ventana2 = new AsIn(this);
+        }
+        return ventana2;
     }
     
     void mostrarMensajeID() {

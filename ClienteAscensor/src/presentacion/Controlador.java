@@ -21,7 +21,8 @@ public class Controlador implements ActionListener {
         if (e.getSource() instanceof JButton) {
             boton=(JButton)e.getSource();
             if (boton.equals(ventana.getBtnUp())) {
-                modelo.mostrarMensajeUP();
+                //modelo.mostrarMensajeUP();
+                //modelo.iniciar2();
             }
             if(boton.equals(ventana.getBtnDown())){
                 
