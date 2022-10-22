@@ -18,6 +18,7 @@ public class AsOut extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         SetImageButton(btnUp, "src\\presentacion\\Imagenes\\up.png");
         SetImageButton(btnDown, "src\\presentacion\\Imagenes\\down.png");
+        asignarEventos();
     }
 
     @SuppressWarnings("unchecked")

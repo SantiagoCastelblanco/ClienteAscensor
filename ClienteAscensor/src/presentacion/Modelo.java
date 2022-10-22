@@ -33,5 +33,16 @@ public class Modelo {
         }
         //}while();
     }
+    
+    void mostrarMensajeUP() {
+        //do{
+        try{
+        int personasSubiendo = Integer.parseInt(JOptionPane.showInputDialog(null, "Cuantas personas subiran?"));
+        }catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog(null, "!!Dato invalido!!");
+            
+        }
+        //}while();
+    }
         
 }
