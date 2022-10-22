@@ -9,7 +9,6 @@ import javax.swing.JLabel;
 public class Controlador implements ActionListener {
     
     private final AsOut ventana;
-
     private final Modelo modelo;
 
     public Controlador(AsOut aThis) {
@@ -17,10 +16,8 @@ public class Controlador implements ActionListener {
         modelo = ventana.getModelo();
     }
     
-    /*public Controlador(AsIn aThis) {
-        ventana2 = aThis;
-        modelo = ventana2.getModelo2();
-    }*/
+    
+ 
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -30,10 +27,17 @@ public class Controlador implements ActionListener {
             if (boton.equals(ventana.getBtnUp())) {
                 ventana.getBtnUp().setBackground(Color.ORANGE);
                 modelo.mostrarMensaje();
-                modelo.iniciar2();
+                ventana.mostrarIn();
             }
             if(boton.equals(ventana.getBtnDown())){
-                //ventana.getBtnDown().setBackground(Color.ORANGE);
+                ventana.getBtnDown().setBackground(Color.ORANGE);
+                modelo.mostrarMensaje();
+                ventana.mostrarIn();
+            }
+            for (int i = 0; i < 10; i++) {
+                if (boton.equals(ventana.getBtnNumeros()[i])) {
+                    ventana.getBtnNumeros()[i].setBackground(Color.ORANGE);
+                }
             }
         }
     }
