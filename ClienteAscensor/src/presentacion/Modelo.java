@@ -8,6 +8,7 @@ public class Modelo {
     
     private AsOut ventana;
     private AsIn ventana2;
+    private int Id;
     
     
     public void iniciar(){
@@ -40,25 +41,41 @@ public class Modelo {
     }
     
     void mostrarMensajeID() {
-        //do{
-        try{
-        int Id = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese la ID del cliente(ID NUMERICA)"));
-        }catch(NumberFormatException ex){
-            JOptionPane.showMessageDialog(null, "!!ID no valida!!");
-            
+        boolean verificar = false;
+        while(verificar==false){
+            try {
+                Id = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese la ID del cliente(ID NUMERICA)"));
+                verificar = true;
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "!!ID no valida!!");
+            }
         }
-        //}while();
+        
     }
     
-    void mostrarMensajeUP() {
-        //do{
-        try{
-        int personasSubiendo = Integer.parseInt(JOptionPane.showInputDialog(null, "Cuantas personas subiran?"));
-        }catch(NumberFormatException ex){
+    void mostrarMensaje() {
+        boolean verificar = false;
+        while(verificar==false){
+             try{
+                int personasSubiendo = Integer.parseInt(JOptionPane.showInputDialog(null, "Cuantas personas subiran?"));
+                verificar=true;
+            }catch(NumberFormatException ex){
             JOptionPane.showMessageDialog(null, "!!Dato invalido!!");
-            
+            }
         }
-        //}while();
     }
+    
+    public void actualizarPisolbl(){
+        
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int Id) {
+        this.Id = Id;
+    }
+    
         
 }

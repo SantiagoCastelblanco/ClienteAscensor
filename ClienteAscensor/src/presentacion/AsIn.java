@@ -109,7 +109,7 @@ public class AsIn extends javax.swing.JFrame {
 
                 btnNumeros[ubicacionArreglo].setBounds(x, y, dimension, dimension);
                 x += dimension + 20;
-
+                asignarEventoBtnPisos(btnNumeros[ubicacionArreglo]);
                 ubicacionArreglo--;
             }
             x = 20;
@@ -117,4 +117,27 @@ public class AsIn extends javax.swing.JFrame {
         }
     }
     
+    private void asignarEventoBtnPisos(JButton btnNumero) {
+        btnNumero.addActionListener(getControl());
+    }
+
+    
+    public Controlador getControl() {
+        if (control == null) {
+            control = new Controlador(this);
+        }
+        return control;
+    }
+    
+    
+
+
+    public Modelo getModelo() {
+        return modelo;
+    }
+    
+    
+
+
+
 }

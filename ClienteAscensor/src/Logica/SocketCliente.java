@@ -19,7 +19,7 @@ public class SocketCliente {
     Socket sc;
     DataOutputStream mensaje;
     DataInputStream escucha;
-    int id = 0;
+    int id ;
 
     public void iniciaCliente(){
        
@@ -33,6 +33,10 @@ public class SocketCliente {
         } catch (IOException ex) {
             Logger.getLogger(SocketCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public void traerId(int id){
+        this.id = id;
     }
 
 }
