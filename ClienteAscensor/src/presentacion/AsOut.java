@@ -114,8 +114,9 @@ public class AsOut extends javax.swing.JFrame {
         this.repaint();
     }
     
-    private void asignarEventos() {
-
+    private void asignarEventos(){
+        btnUp.addActionListener(getControl());
+        btnDown.addActionListener(getControl());
     }
     
     public Controlador getControl() {
@@ -124,11 +125,6 @@ public class AsOut extends javax.swing.JFrame {
         }
         return control;
     }
-    
-    private void asignarEventoBtn(JButton btnNumero) {
-        btnNumero.addActionListener(getControl());
-    }
-    
     
 
     public JButton getBtnDown() {
