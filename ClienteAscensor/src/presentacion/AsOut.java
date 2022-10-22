@@ -16,8 +16,8 @@ public class AsOut extends javax.swing.JFrame {
         modelo=aThis;
         initComponents();
         this.setLocationRelativeTo(null);
-        SetImageButton(up, "src\\presentacion\\Imagenes\\up.png");
-        SetImageButton(down, "src\\presentacion\\Imagenes\\down.png");
+        SetImageButton(btnUp, "src\\presentacion\\Imagenes\\up.png");
+        SetImageButton(btnDown, "src\\presentacion\\Imagenes\\down.png");
     }
 
     @SuppressWarnings("unchecked")
@@ -25,8 +25,8 @@ public class AsOut extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        up = new javax.swing.JButton();
-        down = new javax.swing.JButton();
+        btnUp = new javax.swing.JButton();
+        btnDown = new javax.swing.JButton();
         pisoActual = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -34,17 +34,17 @@ public class AsOut extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentacion/Imagenes/Ascensor.jpg"))); // NOI18N
 
-        up.setMaximumSize(new java.awt.Dimension(25, 25));
-        up.addActionListener(new java.awt.event.ActionListener() {
+        btnUp.setMaximumSize(new java.awt.Dimension(25, 25));
+        btnUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                upActionPerformed(evt);
+                btnUpActionPerformed(evt);
             }
         });
 
-        down.setMaximumSize(new java.awt.Dimension(25, 25));
-        down.addActionListener(new java.awt.event.ActionListener() {
+        btnDown.setMaximumSize(new java.awt.Dimension(25, 25));
+        btnDown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                downActionPerformed(evt);
+                btnDownActionPerformed(evt);
             }
         });
 
@@ -65,8 +65,8 @@ public class AsOut extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(up, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(down, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                            .addComponent(btnUp, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDown, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(234, 234, 234)
                         .addComponent(pisoActual, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -82,29 +82,29 @@ public class AsOut extends javax.swing.JFrame {
                 .addGap(50, 50, 50))
             .addGroup(layout.createSequentialGroup()
                 .addGap(288, 288, 288)
-                .addComponent(up, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnUp, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(down, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnDown, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void downActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downActionPerformed
+    private void btnDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDownActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_downActionPerformed
+    }//GEN-LAST:event_btnDownActionPerformed
 
-    private void upActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upActionPerformed
+    private void btnUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_upActionPerformed
+    }//GEN-LAST:event_btnUpActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton down;
+    private javax.swing.JButton btnDown;
+    private javax.swing.JButton btnUp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel pisoActual;
-    private javax.swing.JButton up;
     // End of variables declaration//GEN-END:variables
 
     private void SetImageButton(JButton name, String root){
@@ -113,4 +113,35 @@ public class AsOut extends javax.swing.JFrame {
         name.setIcon(icon);
         this.repaint();
     }
+    
+    private void asignarEventos() {
+
+    }
+    
+    public Controlador getControl() {
+        if (control == null) {
+            control = new Controlador(this);
+        }
+        return control;
+    }
+    
+    private void asignarEventoBtn(JButton btnNumero) {
+        btnNumero.addActionListener(getControl());
+    }
+    
+    
+
+    public JButton getBtnDown() {
+        return btnDown;
+    }
+
+    public JButton getBtnUp() {
+        return btnUp;
+    }
+
+    public Modelo getModelo() {
+        return modelo;
+    }
+    
+
 }
