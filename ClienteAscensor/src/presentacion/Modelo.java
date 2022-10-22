@@ -24,7 +24,14 @@ public class Modelo {
     }
     
     void mostrarMensajeID() {
+        //do{
+        try{
         int Id = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese la ID del cliente(ID NUMERICA)"));
+        }catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog(null, "!!ID no valida!!");
+            
+        }
+        //}while();
     }
         
 }

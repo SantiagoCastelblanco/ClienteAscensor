@@ -9,6 +9,7 @@ import javax.swing.JButton;
 public class AsOut extends javax.swing.JFrame {
 
     private final Modelo modelo;
+    private Controlador control;
     
     
     AsOut(Modelo aThis) {
