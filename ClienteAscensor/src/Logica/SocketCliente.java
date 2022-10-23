@@ -17,16 +17,19 @@ public class SocketCliente {
     final int PUERTO = 5000;
     final String HOST = "localhost";
     Socket sc;
-    DataOutputStream mensaje;
+    DataOutputStream mensaje, mensaje2;
     DataInputStream escucha;
-    int id ;
+    int newid ;
+    int personassub;
+//    int pisoDeLlegada;
 
     public void iniciaCliente(){
        
         try {
             sc = new Socket(HOST,PUERTO);
             mensaje = new DataOutputStream(sc.getOutputStream());//flujo de datos para enviar mensaje
-            mensaje.writeUTF("ENVIANDO MENSAJE!");
+            mensaje.writeUTF(newid+"");
+            mensaje2.writeUTF(personassub+"");
             escucha = new DataInputStream(sc.getInputStream());//Flujo datos entrada 
             System.out.println(escucha.readUTF());//Mensaje recibido
             sc.close();//Cerramos servidor
@@ -36,7 +39,13 @@ public class SocketCliente {
     }
     
     public void traerId(int id){
-        this.id = id;
+        this.newid = id;
+        //enviar numero de personas
+        //enviar numero de pisos 
+        //diseño peso 
+        //optimizar boton cerrar
     }
-
+    public void personasSubiendo(int personasSubiendo){
+        this.personassub = personasSubiendo;
+    }
 }

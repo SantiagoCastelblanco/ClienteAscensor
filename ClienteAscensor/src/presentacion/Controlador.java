@@ -11,6 +11,7 @@ public class Controlador implements ActionListener {
     private final AsOut ventana;
     private final Modelo modelo;
 
+
     public Controlador(AsOut aThis) {
         ventana = aThis;
         modelo = ventana.getModelo();
@@ -33,10 +34,17 @@ public class Controlador implements ActionListener {
                 ventana.getBtnDown().setBackground(Color.ORANGE);
                 modelo.mostrarMensaje();
                 ventana.mostrarIn();
+            }if (boton.equals(ventana.getBotnCerrado())){
+                ventana.getBotnCerrado().setBackground(Color.ORANGE);
+                ventana.getBtnNumeros().setBackground(Color.BITMASK);
+
             }
+            
             for (int i = 0; i < 10; i++) {
                 if (boton.equals(ventana.getBtnNumeros()[i])) {
                     ventana.getBtnNumeros()[i].setBackground(Color.ORANGE);
+                    modelo.pisoSeleccionado(i);
+                    
                 }
             }
         }
