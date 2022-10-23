@@ -6,12 +6,11 @@ import javax.swing.JOptionPane;
 
 
 public class Modelo {
-    
+    static boolean sobrepeso; 
     private AsOut ventana;
     private int Id;
-    private int numPisos;
     private int pisosOp[];
-    private int personasSubiendo;
+    int personasSubiendo;
     
     public void iniciar(){
         
@@ -60,7 +59,14 @@ public class Modelo {
     public void actualizarPisolbl(){
         
     }
-
+    boolean  sobrepeso(int personasSub){
+        personasSubiendo = personasSub;
+        if (personasSub > 10){
+            sobrepeso = true;
+        }if(personasSub <= 10){
+            sobrepeso = false;
+        }return sobrepeso;
+    }
     public int getId() {
         return Id;
     }
@@ -77,7 +83,11 @@ public class Modelo {
     public int getPersonasSubiendo() {
         return personasSubiendo;
     }
+
+    public int[] getPisosOp() {
+        return pisosOp;
+    }
     
-    
+
         
 }

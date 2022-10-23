@@ -17,10 +17,11 @@ public class SocketCliente {
     final int PUERTO = 5000;
     final String HOST = "localhost";
     Socket sc;
-    DataOutputStream mensaje, mensaje2;
+    DataOutputStream mensaje, mensaje2, vector;
     DataInputStream escucha;
     int newid ;
     int personassub;
+    int pisoOp[];
 //    int pisoDeLlegada;
 
     public void iniciaCliente(){
@@ -40,12 +41,13 @@ public class SocketCliente {
     
     public void traerId(int id){
         this.newid = id;
-        //enviar numero de personas
-        //enviar numero de pisos 
+
+        //enviar numero de pisos x
         //diseño peso 
         //optimizar boton cerrar
     }
     public void personasSubiendo(int personasSubiendo){
         this.personassub = personasSubiendo;
     }
+   
 }

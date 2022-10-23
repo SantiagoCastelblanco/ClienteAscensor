@@ -10,6 +10,7 @@ public class Controlador implements ActionListener {
     
     private final AsOut ventana;
     private final Modelo modelo;
+    private boolean var; 
 
 
     public Controlador(AsOut aThis) {
@@ -36,8 +37,13 @@ public class Controlador implements ActionListener {
                 ventana.mostrarIn();
             }if (boton.equals(ventana.getBotnCerrado())){
                 ventana.getBotnCerrado().setBackground(Color.ORANGE);
-                ventana.getBtnNumeros().setBackground(Color.BITMASK);
 
+            }var = modelo.sobrepeso(modelo.personasSubiendo);
+            if (var = true){
+                ventana.getSobreOn().setBackground(Color.red);
+             
+            }if (var = false){
+                ventana.getSobreOff().setBackground(Color.ORANGE);
             }
             
             for (int i = 0; i < 10; i++) {
