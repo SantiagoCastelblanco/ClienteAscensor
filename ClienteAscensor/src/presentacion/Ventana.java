@@ -1,20 +1,19 @@
-
 package presentacion;
 
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class AsOut extends javax.swing.JFrame {
+public class Ventana extends javax.swing.JFrame {
 
     private final Modelo modelo;
     private Controlador control;
-    
-    
-    AsOut(Modelo aThis) {
-        modelo=aThis;
+
+    Ventana(Modelo aThis) {
+        modelo = aThis;
         initComponents();
         this.setLocationRelativeTo(null);
         SetImageButton(btnUp, "src\\presentacion\\Imagenes\\up.png");
@@ -22,7 +21,7 @@ public class AsOut extends javax.swing.JFrame {
         mostrarOut();
         asignarEventos();
         crearBotonesNumericos();
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -212,7 +211,6 @@ public class AsOut extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUpActionPerformed
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotnCerrado;
     private javax.swing.JButton SobreOff;
@@ -229,15 +227,14 @@ public class AsOut extends javax.swing.JFrame {
     private javax.swing.JLabel pisoActual;
     // End of variables declaration//GEN-END:variables
     private javax.swing.JButton btnNumeros[];
-    
-    
-    private void SetImageButton(JButton name, String root){
+
+    private void SetImageButton(JButton name, String root) {
         ImageIcon image = new ImageIcon(root);
         Icon icon = new ImageIcon(image.getImage().getScaledInstance(name.getWidth(), name.getHeight(), Image.SCALE_DEFAULT));
         name.setIcon(icon);
         this.repaint();
     }
-    
+
     private void crearBotonesNumericos() {
         btnNumeros = new JButton[10];
         int x = 20;
@@ -267,36 +264,39 @@ public class AsOut extends javax.swing.JFrame {
         }
     }
     
-    public void mostrarOut(){
+    public JLabel getLblPisoActual(){
+        return pisoActual;
+    }
+
+    public void mostrarOut() {
         jPanelOut.setVisible(true);
         jPanelin.setVisible(false);
     }
-    
-    public void mostrarIn(){
+
+    public void mostrarIn() {
         jPanelOut.setVisible(false);
         jPanelin.setVisible(true);
     }
-    
-    private void asignarEventos(){
+
+    private void asignarEventos() {
         btnUp.addActionListener(getControl());
         btnDown.addActionListener(getControl());
     }
-    
+
     private void asignarEventoBtnPisos(JButton btnNumero) {
         btnNumero.addActionListener(getControl());
     }
-    
+
     public JButton[] getBtnNumeros() {
         return btnNumeros;
     }
-    
+
     public Controlador getControl() {
         if (control == null) {
             control = new Controlador(this);
         }
         return control;
     }
-    
 
     public JButton getBtnDown() {
         return btnDown;
@@ -321,9 +321,5 @@ public class AsOut extends javax.swing.JFrame {
     public JButton getSobreOn() {
         return SobreOn;
     }
-    
-    
-
-    
 
 }

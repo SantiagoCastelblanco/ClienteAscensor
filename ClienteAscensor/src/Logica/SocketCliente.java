@@ -3,51 +3,71 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Logica;
+
 import java.net.*;
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import presentacion.*;        
+import presentacion.*;
+
 /**
  *
  * @author Estudiantes
  */
-public class SocketCliente {
+public class SocketCliente extends Thread{
     
-    final int PUERTO = 5000;
-    final String HOST = "localhost";
-    Socket sc;
-    DataOutputStream mensaje, mensaje2, vector;
-    DataInputStream escucha;
-    int newid ;
-    int personassub;
-    int pisoOp[];
-//    int pisoDeLlegada;
-
-    public void iniciaCliente(){
-       
+    private final int PUERTO = 5000;
+    private final String HOST = "localhost";
+    private Socket sc;
+    private DataOutputStream datosSalida;
+    private DataInputStream datosEntrada;
+    private final int id;
+    private int pisoAscensor;
+    private int estadoAscensor;
+    
+    public SocketCliente(int idEntrada){
+        this.id = idEntrada;
         try {
-            sc = new Socket(HOST,PUERTO);
-            mensaje = new DataOutputStream(sc.getOutputStream());//flujo de datos para enviar mensaje
-            mensaje.writeUTF(newid+"");
-            mensaje2.writeUTF(personassub+"");
-            escucha = new DataInputStream(sc.getInputStream());//Flujo datos entrada 
-            System.out.println(escucha.readUTF());//Mensaje recibido
-            sc.close();//Cerramos servidor
+            sc = new Socket(HOST, PUERTO);
+            datosSalida = new DataOutputStream(sc.getOutputStream());//flujo de datos para enviar mensaje
+            datosEntrada = new DataInputStream(sc.getInputStream());//Flujo datos entrada 
+            
+            //Nos identificamos al servidor
+            datosSalida.write(id);
         } catch (IOException ex) {
             Logger.getLogger(SocketCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    public void traerId(int id){
-        this.newid = id;
+    public void enviarMensaje(int tipoMensaje, int personas, int[]arreglo) throws IOException{
+        //El formato de envio es: motivo envio, el tipo de peticion, usuarios, y el arreglo
+        datosSalida.write(tipoMensaje);
+        datosSalida.write(personas);
+        datosSalida.writeInt(arreglo.length);
+        for(int e:arreglo) datosSalida.writeInt(e);
+    }
 
-        //enviar numero de pisos x
-        //diseño peso 
-        //optimizar boton cerrar
+    public boolean tieneMensaje() {
+        boolean b = false;
+        try {
+            b = datosEntrada.readBoolean();
+            pisoAscensor = datosEntrada.read();
+            estadoAscensor = datosEntrada.read();
+            System.out.println(pisoAscensor);
+        } catch (IOException ex) {
+            Logger.getLogger(SocketCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(b);
+        return b;
     }
-    public void personasSubiendo(int personasSubiendo){
-        this.personassub = personasSubiendo;
+
+    public int getPisoAscensor() {
+        return pisoAscensor;
     }
-   
+
+    public int getEstadoAscensor() {
+        return estadoAscensor;
+    }
+    
+    
 }
