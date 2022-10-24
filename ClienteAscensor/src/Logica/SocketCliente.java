@@ -44,6 +44,7 @@ public class SocketCliente extends Thread{
         datosSalida.write(tipoMensaje);
         datosSalida.write(personas);
         datosSalida.writeInt(arreglo.length);
+        datosSalida.flush();
         for(int e:arreglo) datosSalida.writeInt(e);
     }
 

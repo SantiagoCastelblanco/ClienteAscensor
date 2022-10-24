@@ -35,7 +35,15 @@ public class Modelo implements Runnable{
         while(activo){
             System.out.println("activo");
             if(elSocket.tieneMensaje()){
-                getVentana().getLblPisoActual().setText(String.valueOf(elSocket.getPisoAscensor()));
+                int pisoActual = elSocket.getPisoAscensor();
+                String piso="";
+                if(pisoActual>=0&&pisoActual<3){
+                    piso = "S"+(3-pisoActual);
+                }
+                else{
+                    piso =String.valueOf(pisoActual-2);
+                }
+                getVentana().getLblPisoActual().setText(piso);
             }
         }
     }
